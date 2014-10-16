@@ -1,0 +1,6 @@
+/* Localized strings */
+
+"TOUCH_TO_ACTIVATE" = "Use TouchID to Activate Alarm";
+"EVALUATE_POLICY_SUCCESS" = "Successful";
+"EVALUATE_POLICY_WITH_ERROR" = "Failed";
+"TOUCH_ID_FALLBACK" = "";

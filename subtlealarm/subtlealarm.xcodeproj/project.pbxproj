@@ -14,6 +14,9 @@
 		8008323C19ED5A53004F5CA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8008323B19ED5A53004F5CA0 /* Images.xcassets */; };
 		8008323F19ED5A53004F5CA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8008323D19ED5A53004F5CA0 /* LaunchScreen.xib */; };
 		8008324B19ED5A53004F5CA0 /* subtlealarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8008324A19ED5A53004F5CA0 /* subtlealarmTests.m */; };
+		8008328319EF838B004F5CA0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008328219EF838B004F5CA0 /* CoreMotion.framework */; };
+		8008328519EF858F004F5CA0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008328419EF858F004F5CA0 /* LocalAuthentication.framework */; };
+		8008328719EF8776004F5CA0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8008328619EF8776004F5CA0 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		8008324419ED5A53004F5CA0 /* subtlealarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = subtlealarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8008324919ED5A53004F5CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8008324A19ED5A53004F5CA0 /* subtlealarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = subtlealarmTests.m; sourceTree = "<group>"; };
+		8008328219EF838B004F5CA0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8008328419EF858F004F5CA0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		8008328619EF8776004F5CA0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8008328519EF858F004F5CA0 /* LocalAuthentication.framework in Frameworks */,
+				8008328319EF838B004F5CA0 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,8 @@
 		8008322219ED5A53004F5CA0 = {
 			isa = PBXGroup;
 			children = (
+				8008328419EF858F004F5CA0 /* LocalAuthentication.framework */,
+				8008328219EF838B004F5CA0 /* CoreMotion.framework */,
 				8008322D19ED5A53004F5CA0 /* subtlealarm */,
 				8008324719ED5A53004F5CA0 /* subtlealarmTests */,
 				8008322C19ED5A53004F5CA0 /* Products */,
@@ -96,6 +106,7 @@
 		8008322E19ED5A53004F5CA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8008328619EF8776004F5CA0 /* Localizable.strings */,
 				8008322F19ED5A53004F5CA0 /* Info.plist */,
 				8008323019ED5A53004F5CA0 /* main.m */,
 			);
@@ -200,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8008323A19ED5A53004F5CA0 /* Main.storyboard in Resources */,
+				8008328719EF8776004F5CA0 /* Localizable.strings in Resources */,
 				8008323F19ED5A53004F5CA0 /* LaunchScreen.xib in Resources */,
 				8008323C19ED5A53004F5CA0 /* Images.xcassets in Resources */,
 			);

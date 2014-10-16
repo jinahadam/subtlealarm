@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
+@import LocalAuthentication;
+
+
 
 @interface ViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UILabel *movementLabel;
+@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSTimer *moving_timer;
+@property (strong, nonatomic) CMMotionManager *motionManager;
+
+
 
 
 @end
