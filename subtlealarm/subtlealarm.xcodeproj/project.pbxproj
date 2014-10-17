@@ -17,6 +17,9 @@
 		8008328319EF838B004F5CA0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008328219EF838B004F5CA0 /* CoreMotion.framework */; };
 		8008328519EF858F004F5CA0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008328419EF858F004F5CA0 /* LocalAuthentication.framework */; };
 		8008328719EF8776004F5CA0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8008328619EF8776004F5CA0 /* Localizable.strings */; };
+		8050025419F0BD8B00D9A897 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8050025319F0BD8B00D9A897 /* AVFoundation.framework */; };
+		8050025619F0BD9400D9A897 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8050025519F0BD9400D9A897 /* AudioToolbox.framework */; };
+		8050025819F0BEAC00D9A897 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8050025719F0BEAC00D9A897 /* alarm.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		8008328219EF838B004F5CA0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		8008328419EF858F004F5CA0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		8008328619EF8776004F5CA0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8050025319F0BD8B00D9A897 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8050025519F0BD9400D9A897 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8050025719F0BEAC00D9A897 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8050025619F0BD9400D9A897 /* AudioToolbox.framework in Frameworks */,
+				8050025419F0BD8B00D9A897 /* AVFoundation.framework in Frameworks */,
 				8008328519EF858F004F5CA0 /* LocalAuthentication.framework in Frameworks */,
 				8008328319EF838B004F5CA0 /* CoreMotion.framework in Frameworks */,
 			);
@@ -71,6 +79,8 @@
 		8008322219ED5A53004F5CA0 = {
 			isa = PBXGroup;
 			children = (
+				8050025519F0BD9400D9A897 /* AudioToolbox.framework */,
+				8050025319F0BD8B00D9A897 /* AVFoundation.framework */,
 				8008328419EF858F004F5CA0 /* LocalAuthentication.framework */,
 				8008328219EF838B004F5CA0 /* CoreMotion.framework */,
 				8008322D19ED5A53004F5CA0 /* subtlealarm */,
@@ -106,6 +116,7 @@
 		8008322E19ED5A53004F5CA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8050025719F0BEAC00D9A897 /* alarm.wav */,
 				8008328619EF8776004F5CA0 /* Localizable.strings */,
 				8008322F19ED5A53004F5CA0 /* Info.plist */,
 				8008323019ED5A53004F5CA0 /* main.m */,
@@ -179,6 +190,11 @@
 				TargetAttributes = {
 					8008322A19ED5A53004F5CA0 = {
 						CreatedOnToolsVersion = 6.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					8008324319ED5A53004F5CA0 = {
 						CreatedOnToolsVersion = 6.0;
@@ -210,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8050025819F0BEAC00D9A897 /* alarm.wav in Resources */,
 				8008323A19ED5A53004F5CA0 /* Main.storyboard in Resources */,
 				8008328719EF8776004F5CA0 /* Localizable.strings in Resources */,
 				8008323F19ED5A53004F5CA0 /* LaunchScreen.xib in Resources */,
@@ -312,6 +329,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -346,6 +364,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -357,6 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = subtlealarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -367,6 +387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = subtlealarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -424,6 +445,7 @@
 				8008325019ED5A53004F5CA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8008325119ED5A53004F5CA0 /* Build configuration list for PBXNativeTarget "subtlealarmTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +454,7 @@
 				8008325319ED5A53004F5CA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

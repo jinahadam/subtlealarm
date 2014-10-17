@@ -8,12 +8,18 @@
 
 #import "ViewController.h"
 
+
+
+
 @interface ViewController () {
-    double timerCount;
     double phoneMovingSeconds;
+    double phoneNotMoving;
     double lastValue;
     bool phone_moving;
     bool alarm_status;
+    bool trigger_alarm_when_phone_is_still;
+    bool sound;
+    
 
 }
 
@@ -21,8 +27,10 @@
 
 @implementation ViewController
 
-@synthesize timer;
 @synthesize moving_timer;
+@synthesize stop_timer;
+
+
 
 
 - (void)viewDidLoad {
@@ -36,14 +44,81 @@
                                     }];
     
     
-    timerCount = 0;
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(turnOffAlarm:)
+                                                 name: UIApplicationWillEnterForegroundNotification
+                                               object: nil];
+
+    
+    
+    
+    
     phoneMovingSeconds = 0;
     lastValue = 0;
+    phoneNotMoving = 0;
     phone_moving = false;
     alarm_status = false;
+    trigger_alarm_when_phone_is_still = false;
+    sound = false;
+    
+    
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
+    NSError *setCategoryError = nil;
+    BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+    if (!success) { /* handle the error condition */ }
+    
+    NSError *activationError = nil;
+    success = [audioSession setActive:YES error:&activationError];
+    if (!success) { /* handle the error condition */ }
+    
+    
 
+    
+    
+    
+    
+    
 
 }
+
+
+- (void)turnOffAlarm: (NSNotification*) sender
+{
+    
+    self.alarmStatus.text = @"Alarm OFF";
+    alarm_status = false;
+    [self stopAlarmSound];
+    
+}
+
+-(void) playAlarmSound {
+    
+    
+    
+    if (!sound) {
+    NSError *error;
+    NSString *audioFilePath = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"wav"];
+    NSURL *audioFileURL = [NSURL fileURLWithPath:audioFilePath];
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:&error];
+    self.audioPlayer.numberOfLoops = -1;
+    [self.audioPlayer setDelegate:self];
+    [self.audioPlayer play];
+    sound = true;
+    }
+
+    
+}
+
+- (void)stopAlarmSound {
+    [self.audioPlayer stop];
+    sound = false;
+
+}
+
 - (IBAction)triggerAlarm:(id)sender {
     
     if (!alarm_status) {
@@ -57,15 +132,14 @@
          ^(BOOL success, NSError *authenticationError) {
              if (success) {
                  msg =[NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_SUCCESS", nil)];
+                 trigger_alarm_when_phone_is_still = true;
                  
-                 alarm_status = false;
-                 NSLog(@"alarm on");
+                 
                  
                  
              } else {
                  msg = [NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_WITH_ERROR", nil), authenticationError.localizedDescription];
              }
-             // [self printResult:self.textView message:msg];
          }];
     } else {
         
@@ -83,8 +157,10 @@
         
     } else {
         phone_moving = false;
-        phoneMovingSeconds = 0;
+      //  phoneMovingSeconds = 0;
         [moving_timer invalidate];
+        if (!stop_timer.isValid)
+            stop_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseStopTimer) userInfo:nil repeats:YES];
         
         
     }
@@ -92,9 +168,29 @@
     lastValue = val;
     if (phone_moving && phoneMovingSeconds > 5) {
         self.movementLabel.text = @"Phone is Moving for 5 seconds";
+        phoneNotMoving = 0;
         
-    } else {
+        if (alarm_status) {
+            [self playAlarmSound];
+        }
+        
+        
+        
+        
+    } else if (!phone_moving && phoneNotMoving > 5)
+    {
         self.movementLabel.text = @"Phone is Still";
+        phoneMovingSeconds = 0;
+        if (trigger_alarm_when_phone_is_still) {
+            alarm_status = true;
+            self.alarmStatus.text = @"Alarm ON";
+            
+            
+            
+        }
+    
+    } else {
+       
         
     }
     
@@ -103,33 +199,21 @@
 }
 
 
-- (IBAction)activateAlarm:(id)sender {
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseTimerCount) userInfo:nil repeats:YES];
+
+- (void)increaseStopTimer
+{
+    phoneNotMoving++;
     
 }
 
 - (void)increasePhoneMovementTimer
 {
     phoneMovingSeconds++;
-   // NSLog(@"%f phone moving timer", phoneMovingSeconds);
     
 }
 
-- (void)increaseTimerCount
-{
-    timerCount++;
-    
-    
-   // NSLog(@"Activating Lock in %f seconds",5.9-timerCount);
-    
-    
-    if (timerCount == 5) {
-      //  NSLog(@"5 seconds passed");
-        timerCount = 0;
-        [timer invalidate];
-    }
-}
+
+
 
 
 #pragma "touch id stuff"
@@ -143,15 +227,12 @@
     NSError *error;
     BOOL success;
     
-    // test if we can evaluate the policy, this test will tell us if Touch ID is available and enrolled
     success = [context canEvaluatePolicy: LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
     if (success) {
         msg =[NSString stringWithFormat:NSLocalizedString(@"TOUCH_ID_IS_AVAILABLE", nil)];
     } else {
         msg =[NSString stringWithFormat:NSLocalizedString(@"TOUCH_ID_IS_NOT_AVAILABLE", nil)];
     }
-    // [super printResult:self.textView message:msg];
-    
 }
 
 

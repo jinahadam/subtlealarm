@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @import LocalAuthentication;
 
 
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <AVAudioPlayerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *movementLabel;
-@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) IBOutlet UILabel *alarmStatus;
 @property (strong, nonatomic) NSTimer *moving_timer;
+@property (strong, nonatomic) NSTimer *stop_timer;
 @property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 
 
