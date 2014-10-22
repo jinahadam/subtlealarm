@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Jinah Adam. All rights reserved.
 //
 
+double const INCREMENT = 0.1;
+double const STILL_TIME = 5;
+double const MOVEMENT_TIME = 3;
+
 #import "ViewController.h"
 
 
@@ -35,6 +39,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+
     
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.gyroUpdateInterval = .2;
@@ -75,6 +82,7 @@
     if (!success) { /* handle the error condition */ }
     
     
+    [self.cirlce setStrokeEnd:0.0 animated:NO];
 
     
     
@@ -90,6 +98,7 @@
     
     self.alarmStatus.text = @"Alarm OFF";
     alarm_status = false;
+    trigger_alarm_when_phone_is_still = false;
     [self stopAlarmSound];
     
 }
@@ -153,20 +162,23 @@
     if (lastValue != val) {
         phone_moving = true;
         if (!moving_timer.isValid)
-            moving_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increasePhoneMovementTimer) userInfo:nil repeats:YES];
+            moving_timer = [NSTimer scheduledTimerWithTimeInterval:INCREMENT target:self selector:@selector(increasePhoneMovementTimer) userInfo:nil repeats:YES];
+        
         
     } else {
         phone_moving = false;
       //  phoneMovingSeconds = 0;
         [moving_timer invalidate];
-        if (!stop_timer.isValid)
-            stop_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseStopTimer) userInfo:nil repeats:YES];
+        if (!stop_timer.isValid) {
+            stop_timer = [NSTimer scheduledTimerWithTimeInterval:INCREMENT target:self selector:@selector(increaseStopTimer) userInfo:nil repeats:YES];
+            [self.cirlce setStrokeEnd:0.0 animated:YES];
+        }
         
         
     }
     
     lastValue = val;
-    if (phone_moving && phoneMovingSeconds > 5) {
+    if (phone_moving && phoneMovingSeconds > MOVEMENT_TIME) {
         self.movementLabel.text = @"Phone is Moving for 5 seconds";
         phoneNotMoving = 0;
         
@@ -177,7 +189,7 @@
         
         
         
-    } else if (!phone_moving && phoneNotMoving > 5)
+    } else if (!phone_moving && phoneNotMoving > STILL_TIME)
     {
         self.movementLabel.text = @"Phone is Still";
         phoneMovingSeconds = 0;
@@ -202,13 +214,22 @@
 
 - (void)increaseStopTimer
 {
-    phoneNotMoving++;
+    if (trigger_alarm_when_phone_is_still) {
+        [self.cirlce setStrokeColor:[UIColor redColor]];
+    } else {
+        [self.cirlce setStrokeColor:[UIColor yellowColor]];
+    }
+    phoneNotMoving = phoneNotMoving + INCREMENT;
+    float cir = (phoneNotMoving/STILL_TIME);
+    [self.cirlce setStrokeEnd:cir animated:YES];
+    
+    
     
 }
 
 - (void)increasePhoneMovementTimer
 {
-    phoneMovingSeconds++;
+    phoneMovingSeconds =phoneMovingSeconds + INCREMENT;
     
 }
 

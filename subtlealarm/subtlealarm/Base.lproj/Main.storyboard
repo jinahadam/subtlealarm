@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -17,10 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4My-dD-BhV">
-                                <rect key="frame" x="250" y="160" width="100" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SX3-ha-b3z" customClass="CircleView">
+                                <rect key="frame" x="174" y="73" width="250" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="9kV-Se-ejq"/>
+                                    <constraint firstAttribute="width" constant="250" id="TJ8-5r-wEU"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4My-dD-BhV" customClass="so">
+                                <rect key="frame" x="175" y="160" width="250" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="FbS-wo-Nsf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
                                 <state key="normal" title="Activate Alarm">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="triggerAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="H5k-BX-8hY"/>
@@ -32,20 +45,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adi-1K-SU4">
-                                <rect key="frame" x="251" y="493" width="99" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adi-1K-SU4">
+                                <rect key="frame" x="176" y="493" width="249" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="qPZ-hl-zcZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="SX3-ha-b3z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="118" id="4wR-E8-cwT"/>
+                            <constraint firstAttribute="trailing" secondItem="SX3-ha-b3z" secondAttribute="trailing" constant="250" id="81X-CL-A8i"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h8J-ap-5lA" secondAttribute="bottom" id="91Z-We-8ta"/>
+                            <constraint firstItem="4My-dD-BhV" firstAttribute="centerY" secondItem="SX3-ha-b3z" secondAttribute="centerY" constant="-10.5" id="E6V-fE-Khy"/>
                             <constraint firstItem="4My-dD-BhV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" multiplier="3" constant="100" id="Orz-G6-iBa"/>
+                            <constraint firstItem="4My-dD-BhV" firstAttribute="centerX" secondItem="SX3-ha-b3z" secondAttribute="centerX" constant="1" id="Ubq-eC-4t8"/>
                             <constraint firstAttribute="centerX" secondItem="h8J-ap-5lA" secondAttribute="centerX" id="cDY-2K-UVd"/>
                             <constraint firstAttribute="bottom" secondItem="Adi-1K-SU4" secondAttribute="bottom" constant="86" id="fqu-il-Kgn"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h8J-ap-5lA" secondAttribute="bottom" id="gtq-3H-xEI"/>
@@ -57,13 +74,17 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="4wR-E8-cwT"/>
+                                <exclude reference="81X-CL-A8i"/>
                                 <exclude reference="91Z-We-8ta"/>
                                 <exclude reference="gtq-3H-xEI"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="alarmButton" destination="4My-dD-BhV" id="ryk-dK-hjB"/>
                         <outlet property="alarmStatus" destination="Adi-1K-SU4" id="YTr-kl-wvA"/>
+                        <outlet property="cirlce" destination="SX3-ha-b3z" id="ksQ-up-QHg"/>
                         <outlet property="movementLabel" destination="h8J-ap-5lA" id="LMi-Re-QQh"/>
                     </connections>
                 </viewController>
