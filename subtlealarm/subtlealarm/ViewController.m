@@ -84,7 +84,16 @@ double const MOVEMENT_TIME = 3;
     
     [self.cirlce setStrokeEnd:0.0 animated:NO];
 
+    NSError *error;
+    NSString *audioFilePath = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"wav"];
+    NSURL *audioFileURL = [NSURL fileURLWithPath:audioFilePath];
     
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:&error];
+    self.audioPlayer.numberOfLoops = -1;
+    self.audioPlayer.volume = 0;
+    [self.audioPlayer setDelegate:self];
+    [self.audioPlayer play];
+
     
     
     
@@ -108,22 +117,16 @@ double const MOVEMENT_TIME = 3;
     
     
     if (!sound) {
-    NSError *error;
-    NSString *audioFilePath = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"wav"];
-    NSURL *audioFileURL = [NSURL fileURLWithPath:audioFilePath];
-    
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:&error];
-    self.audioPlayer.numberOfLoops = -1;
-    [self.audioPlayer setDelegate:self];
-    [self.audioPlayer play];
-    sound = true;
+        self.audioPlayer.volume = 0.9;
+
+        sound = true;
     }
 
     
 }
 
 - (void)stopAlarmSound {
-    [self.audioPlayer stop];
+    self.audioPlayer.volume = 0;
     sound = false;
 
 }
