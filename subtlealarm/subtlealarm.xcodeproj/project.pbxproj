@@ -99,10 +99,6 @@
 		8008322219ED5A53004F5CA0 = {
 			isa = PBXGroup;
 			children = (
-				8050025519F0BD9400D9A897 /* AudioToolbox.framework */,
-				8050025319F0BD8B00D9A897 /* AVFoundation.framework */,
-				8008328419EF858F004F5CA0 /* LocalAuthentication.framework */,
-				8008328219EF838B004F5CA0 /* CoreMotion.framework */,
 				8008322D19ED5A53004F5CA0 /* subtlealarm */,
 				8008324719ED5A53004F5CA0 /* subtlealarmTests */,
 				8008322C19ED5A53004F5CA0 /* Products */,
@@ -170,6 +166,10 @@
 		8295AF8FB1A5730E5A3AB282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8050025519F0BD9400D9A897 /* AudioToolbox.framework */,
+				8050025319F0BD8B00D9A897 /* AVFoundation.framework */,
+				8008328419EF858F004F5CA0 /* LocalAuthentication.framework */,
+				8008328219EF838B004F5CA0 /* CoreMotion.framework */,
 				D390C6C08C4A27ADCA4A1C1B /* libPods-subtlealarm.a */,
 			);
 			name = Frameworks;
