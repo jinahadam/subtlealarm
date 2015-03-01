@@ -13,8 +13,6 @@ double const MOVEMENT_TIME = 3;
 #import "ViewController.h"
 
 
-
-
 @interface ViewController () {
     double phoneMovingSeconds;
     double phoneNotMoving;
@@ -59,8 +57,6 @@ double const MOVEMENT_TIME = 3;
 
     
     
-    
-    
     phoneMovingSeconds = 0;
     lastValue = 0;
     phoneNotMoving = 0;
@@ -94,10 +90,6 @@ double const MOVEMENT_TIME = 3;
     [self.audioPlayer setDelegate:self];
     [self.audioPlayer play];
 
-    
-    
-    
-    
 
 }
 
@@ -113,8 +105,6 @@ double const MOVEMENT_TIME = 3;
 }
 
 -(void) playAlarmSound {
-    
-    
     
     if (!sound) {
         self.audioPlayer.volume = 0.9;
@@ -227,7 +217,6 @@ double const MOVEMENT_TIME = 3;
     [self.cirlce setStrokeEnd:cir animated:YES];
     
     
-    
 }
 
 - (void)increasePhoneMovementTimer
@@ -235,9 +224,6 @@ double const MOVEMENT_TIME = 3;
     phoneMovingSeconds =phoneMovingSeconds + INCREMENT;
     
 }
-
-
-
 
 
 #pragma "touch id stuff"
