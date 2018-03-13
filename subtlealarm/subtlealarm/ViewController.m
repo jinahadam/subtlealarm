@@ -21,8 +21,6 @@ double const MOVEMENT_TIME = 3;
     bool alarm_status;
     bool trigger_alarm_when_phone_is_still;
     bool sound;
-    
-
 }
 
 @end
@@ -32,31 +30,25 @@ double const MOVEMENT_TIME = 3;
 @synthesize moving_timer;
 @synthesize stop_timer;
 
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+    [self setupGyro];
+    [self config];
+    [self setupAudio];
+    [self.cirlce setStrokeEnd:0.0 animated:NO];
 
-    
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.gyroUpdateInterval = .2;
-    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
-                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
-                                        [self outputRotationData:gyroData.rotationRate];
-                                    }];
-    
-    
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver: self
                                              selector: @selector(turnOffAlarm:)
                                                  name: UIApplicationWillEnterForegroundNotification
                                                object: nil];
 
-    
-    
+}
+
+-(void) config {
     phoneMovingSeconds = 0;
     lastValue = 0;
     phoneNotMoving = 0;
@@ -64,51 +56,52 @@ double const MOVEMENT_TIME = 3;
     alarm_status = false;
     trigger_alarm_when_phone_is_still = false;
     sound = false;
-    
-    
-    
+}
+
+-(void) setupAudio {
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    
+
     NSError *setCategoryError = nil;
     BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
     if (!success) { /* handle the error condition */ }
-    
+
     NSError *activationError = nil;
     success = [audioSession setActive:YES error:&activationError];
     if (!success) { /* handle the error condition */ }
-    
-    
-    [self.cirlce setStrokeEnd:0.0 animated:NO];
 
     NSError *error;
     NSString *audioFilePath = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"wav"];
     NSURL *audioFileURL = [NSURL fileURLWithPath:audioFilePath];
-    
+
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:&error];
     self.audioPlayer.numberOfLoops = -1;
     self.audioPlayer.volume = 0;
     [self.audioPlayer setDelegate:self];
     [self.audioPlayer play];
 
+}
+
+-(void) setupGyro {
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.gyroUpdateInterval = .2;
+    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
+                                        [self outputRotationData:gyroData.rotationRate];
+                                    }];
 
 }
 
-
-- (void)turnOffAlarm: (NSNotification*) sender
-{
-    
+- (void)turnOffAlarm: (NSNotification*) sender {
     self.alarmStatus.text = @"Alarm OFF";
     alarm_status = false;
     trigger_alarm_when_phone_is_still = false;
     [self stopAlarmSound];
-    
 }
 
 -(void) playAlarmSound {
     
     if (!sound) {
         self.audioPlayer.volume = 0.9;
-
         sound = true;
     }
 
@@ -135,10 +128,7 @@ double const MOVEMENT_TIME = 3;
              if (success) {
                  msg =[NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_SUCCESS", nil)];
                  trigger_alarm_when_phone_is_still = true;
-                 
-                 
-                 
-                 
+
              } else {
                  msg = [NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_WITH_ERROR", nil), authenticationError.localizedDescription];
              }
@@ -178,20 +168,13 @@ double const MOVEMENT_TIME = 3;
         if (alarm_status) {
             [self playAlarmSound];
         }
-        
-        
-        
-        
-    } else if (!phone_moving && phoneNotMoving > STILL_TIME)
-    {
+
+    } else if (!phone_moving && phoneNotMoving > STILL_TIME) {
         self.movementLabel.text = @"Phone is Still";
         phoneMovingSeconds = 0;
         if (trigger_alarm_when_phone_is_still) {
             alarm_status = true;
             self.alarmStatus.text = @"Alarm ON";
-            
-            
-            
         }
     
     } else {

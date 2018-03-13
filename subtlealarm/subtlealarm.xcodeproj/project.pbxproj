@@ -20,8 +20,8 @@
 		8050025419F0BD8B00D9A897 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8050025319F0BD8B00D9A897 /* AVFoundation.framework */; };
 		8050025619F0BD9400D9A897 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8050025519F0BD9400D9A897 /* AudioToolbox.framework */; };
 		8050025819F0BEAC00D9A897 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8050025719F0BEAC00D9A897 /* alarm.wav */; };
-		80A5BFF11AA2E175003D5F50 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A5BFF01AA2E175003D5F50 /* libFlurry_6.2.0.a */; };
 		80A5BFF31AA2E2B4003D5F50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A5BFF21AA2E2B4003D5F50 /* SystemConfiguration.framework */; };
+		80A5BFF51AA2E89D003D5F50 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A5BFF41AA2E89D003D5F50 /* StoreKit.framework */; };
 		80ADC0B219F7541E00666C25 /* ConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ADC0B119F7541E00666C25 /* ConfirmButton.m */; };
 		80ADC0B519F7D69B00666C25 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ADC0B419F7D69B00666C25 /* CircleView.m */; };
 		A8598234324FC93F0ACD3CD3 /* libPods-subtlealarm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D390C6C08C4A27ADCA4A1C1B /* libPods-subtlealarm.a */; };
@@ -58,9 +58,8 @@
 		8050025319F0BD8B00D9A897 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8050025519F0BD9400D9A897 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8050025719F0BEAC00D9A897 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
-		80A5BFEF1AA2E175003D5F50 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		80A5BFF01AA2E175003D5F50 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
 		80A5BFF21AA2E2B4003D5F50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		80A5BFF41AA2E89D003D5F50 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		80ADC0B019F7541E00666C25 /* ConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmButton.h; sourceTree = "<group>"; };
 		80ADC0B119F7541E00666C25 /* ConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmButton.m; sourceTree = "<group>"; };
 		80ADC0B319F7D69B00666C25 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
@@ -77,9 +76,9 @@
 				80A5BFF31AA2E2B4003D5F50 /* SystemConfiguration.framework in Frameworks */,
 				8050025619F0BD9400D9A897 /* AudioToolbox.framework in Frameworks */,
 				8050025419F0BD8B00D9A897 /* AVFoundation.framework in Frameworks */,
+				80A5BFF51AA2E89D003D5F50 /* StoreKit.framework in Frameworks */,
 				8008328519EF858F004F5CA0 /* LocalAuthentication.framework in Frameworks */,
 				8008328319EF838B004F5CA0 /* CoreMotion.framework in Frameworks */,
-				80A5BFF11AA2E175003D5F50 /* libFlurry_6.2.0.a in Frameworks */,
 				A8598234324FC93F0ACD3CD3 /* libPods-subtlealarm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,20 +169,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		80A5BFEE1AA2E175003D5F50 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				80A5BFEF1AA2E175003D5F50 /* Flurry.h */,
-				80A5BFF01AA2E175003D5F50 /* libFlurry_6.2.0.a */,
-			);
-			path = Flurry;
-			sourceTree = "<group>";
-		};
 		8295AF8FB1A5730E5A3AB282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80A5BFF41AA2E89D003D5F50 /* StoreKit.framework */,
 				80A5BFF21AA2E2B4003D5F50 /* SystemConfiguration.framework */,
-				80A5BFEE1AA2E175003D5F50 /* Flurry */,
 				8050025519F0BD9400D9A897 /* AudioToolbox.framework */,
 				8050025319F0BD8B00D9A897 /* AVFoundation.framework */,
 				8008328419EF858F004F5CA0 /* LocalAuthentication.framework */,
@@ -244,8 +234,12 @@
 				TargetAttributes = {
 					8008322A19ED5A53004F5CA0 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = MWPM7V4LD5;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -464,6 +458,8 @@
 			baseConfigurationReference = 2F4E294CAA4E9DA0D44CB5C7 /* Pods-subtlealarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = subtlealarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -472,6 +468,7 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -480,6 +477,8 @@
 			baseConfigurationReference = A6DF1D4D5BC8329F92671317 /* Pods-subtlealarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = subtlealarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -488,6 +487,7 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
