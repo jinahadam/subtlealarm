@@ -207,9 +207,9 @@ double const MOVEMENT_TIME = 3;
 - (void)increaseStopTimer
 {
     if (trigger_alarm_when_phone_is_still) {
-        [self.cirlce setStrokeColor:[UIColor redColor]];
+        [self.cirlce setStrokeColor:[UIColor grayColor]];
     } else {
-        [self.cirlce setStrokeColor:[UIColor yellowColor]];
+        [self.cirlce setStrokeColor:[UIColor grayColorx`]];
     }
     phoneNotMoving = phoneNotMoving + INCREMENT;
     float cir = (phoneNotMoving/STILL_TIME);

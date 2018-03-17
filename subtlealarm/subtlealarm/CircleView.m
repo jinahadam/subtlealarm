@@ -21,7 +21,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self addCircleLayer];
-        [self setStrokeColor:[UIColor yellowColor]];
+        [self setStrokeColor:[UIColor blackColor]];
     }
     return self;
 
