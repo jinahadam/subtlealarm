@@ -12,7 +12,6 @@ double const MOVEMENT_TIME = 3;
 
 #import "ViewController.h"
 
-
 @interface ViewController () {
     double phoneMovingSeconds;
     double phoneNotMoving;
@@ -21,6 +20,8 @@ double const MOVEMENT_TIME = 3;
     bool alarm_status;
     bool trigger_alarm_when_phone_is_still;
     bool sound;
+    float phoneVoume;
+
 }
 
 @end
@@ -29,6 +30,7 @@ double const MOVEMENT_TIME = 3;
 
 @synthesize moving_timer;
 @synthesize stop_timer;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,12 +41,16 @@ double const MOVEMENT_TIME = 3;
 
 }
 
--(void)viewDidAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver: self
                                              selector: @selector(turnOffAlarm:)
                                                  name: UIApplicationWillEnterForegroundNotification
                                                object: nil];
+
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[AVAudioSession sharedInstance] addObserver:self forKeyPath:@"outputVolume" options:NSKeyValueObservingOptionNew context:nil];
+
 
 }
 
@@ -59,8 +65,10 @@ double const MOVEMENT_TIME = 3;
 }
 
 -(void) setupAudio {
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 
+    AVAudioSession *audioSession= [AVAudioSession sharedInstance];
+
+    phoneVoume = audioSession.outputVolume;
     NSError *setCategoryError = nil;
     BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
     if (!success) { /* handle the error condition */ }
@@ -81,6 +89,14 @@ double const MOVEMENT_TIME = 3;
 
 }
 
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+    if ([keyPath isEqual:@"outputVolume"]) {
+        phoneVoume = [change[@"new"] doubleValue];
+
+    }
+}
+
 -(void) setupGyro {
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.gyroUpdateInterval = .2;
@@ -99,24 +115,26 @@ double const MOVEMENT_TIME = 3;
 }
 
 -(void) playAlarmSound {
-    
     if (!sound) {
         self.audioPlayer.volume = 0.9;
         sound = true;
     }
-
-    
 }
 
 - (void)stopAlarmSound {
     self.audioPlayer.volume = 0;
     sound = false;
-
 }
 
 - (IBAction)triggerAlarm:(id)sender {
     
     if (!alarm_status) {
+
+        if (phoneVoume < 0.5) {
+            self.movementLabel.text = @"Phone Volume is too low.";
+            return;
+        }
+
         LAContext *context = [[LAContext alloc] init];
         __block  NSString *msg;
         
@@ -133,9 +151,6 @@ double const MOVEMENT_TIME = 3;
                  msg = [NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_WITH_ERROR", nil), authenticationError.localizedDescription];
              }
          }];
-    } else {
-        
-        NSLog(@"alarm is already on");
     }
 }
 
@@ -147,22 +162,18 @@ double const MOVEMENT_TIME = 3;
         if (!moving_timer.isValid)
             moving_timer = [NSTimer scheduledTimerWithTimeInterval:INCREMENT target:self selector:@selector(increasePhoneMovementTimer) userInfo:nil repeats:YES];
         
-        
     } else {
         phone_moving = false;
-      //  phoneMovingSeconds = 0;
         [moving_timer invalidate];
         if (!stop_timer.isValid) {
             stop_timer = [NSTimer scheduledTimerWithTimeInterval:INCREMENT target:self selector:@selector(increaseStopTimer) userInfo:nil repeats:YES];
             [self.cirlce setStrokeEnd:0.0 animated:YES];
         }
-        
-        
     }
     
     lastValue = val;
     if (phone_moving && phoneMovingSeconds > MOVEMENT_TIME) {
-        self.movementLabel.text = @"Phone is Moving for 5 seconds";
+        self.movementLabel.text = @"Phone is in motion";
         phoneNotMoving = 0;
         
         if (alarm_status) {
@@ -175,18 +186,10 @@ double const MOVEMENT_TIME = 3;
         if (trigger_alarm_when_phone_is_still) {
             alarm_status = true;
             self.alarmStatus.text = @"Alarm ON";
+            self.movementLabel.text = @"Lock the phone, Unlock to stop the alarm";
         }
-    
-    } else {
-       
-        
     }
-    
-    
-    
 }
-
-
 
 - (void)increaseStopTimer
 {

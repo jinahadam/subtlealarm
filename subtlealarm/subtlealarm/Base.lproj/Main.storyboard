@@ -1,10 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -15,48 +24,45 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SX3-ha-b3z" customClass="CircleView">
-                                <rect key="frame" x="174" y="93" width="250" height="250"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="34" y="93" width="250" height="250"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="9kV-Se-ejq"/>
                                     <constraint firstAttribute="width" constant="250" id="TJ8-5r-wEU"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4My-dD-BhV" customClass="so">
-                                <rect key="frame" x="175" y="180" width="250" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="FbS-wo-Nsf"/>
-                                </constraints>
+                                <rect key="frame" x="57" y="180" width="206" height="54"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
                                 <state key="normal" title="Activate Alarm">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="triggerAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="H5k-BX-8hY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="movement" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8J-ap-5lA">
-                                <rect key="frame" x="259" y="560" width="81" height="20"/>
+                                <rect key="frame" x="119.5" y="326" width="81" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adi-1K-SU4">
-                                <rect key="frame" x="176" y="493" width="249" height="21"/>
+                                <rect key="frame" x="58" y="259" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="qPZ-hl-zcZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SX3-ha-b3z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="118" id="4wR-E8-cwT"/>
                             <constraint firstAttribute="trailing" secondItem="SX3-ha-b3z" secondAttribute="trailing" constant="250" id="81X-CL-A8i"/>
@@ -65,13 +71,12 @@
                             <constraint firstItem="4My-dD-BhV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" multiplier="3" constant="120" id="Orz-G6-iBa"/>
                             <constraint firstItem="4My-dD-BhV" firstAttribute="centerX" secondItem="SX3-ha-b3z" secondAttribute="centerX" constant="1" id="Ubq-eC-4t8"/>
                             <constraint firstAttribute="centerX" secondItem="h8J-ap-5lA" secondAttribute="centerX" id="cDY-2K-UVd"/>
-                            <constraint firstAttribute="bottom" secondItem="Adi-1K-SU4" secondAttribute="bottom" constant="86" id="fqu-il-Kgn"/>
+                            <constraint firstAttribute="bottom" secondItem="Adi-1K-SU4" secondAttribute="bottom" constant="200" id="fqu-il-Kgn"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h8J-ap-5lA" secondAttribute="bottom" id="gtq-3H-xEI"/>
                             <constraint firstItem="h8J-ap-5lA" firstAttribute="top" secondItem="Adi-1K-SU4" secondAttribute="bottom" constant="46" id="kcj-fe-EmX"/>
                             <constraint firstItem="Adi-1K-SU4" firstAttribute="centerX" secondItem="4My-dD-BhV" secondAttribute="centerX" id="lKO-ph-3WL"/>
                             <constraint firstAttribute="centerX" secondItem="4My-dD-BhV" secondAttribute="centerX" id="mfX-oi-WSr"/>
                             <constraint firstItem="Adi-1K-SU4" firstAttribute="trailing" secondItem="4My-dD-BhV" secondAttribute="trailing" id="mv8-Kr-INh"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h8J-ap-5lA" secondAttribute="bottom" constant="20" id="srY-kp-dos"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
