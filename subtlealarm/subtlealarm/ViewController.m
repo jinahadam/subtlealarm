@@ -161,6 +161,12 @@ double const MOVEMENT_TIME = 1;
 
              } else {
                  msg = [NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_WITH_ERROR", nil), authenticationError.localizedDescription];
+
+                 UIAlertController *alert = [[UIAlertController alloc] init];
+                 [alert setTitle:@"Failed to set Alarm"];
+                 [alert setMessage:@"This app uses TouchID/FaceID to activate the anti-theft alarm, Please allow the app to use these in the device's Settings."];
+                 [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+                 [self presentViewController:alert animated:NO completion:nil];
              }
          }];
     }
