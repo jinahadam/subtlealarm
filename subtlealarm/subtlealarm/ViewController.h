@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet CircleView *cirlce;
 @property (strong, nonatomic) IBOutlet UILabel *alarmStatus;
 @property (strong, nonatomic) IBOutlet UIButton *alarmButton;
+@property (weak, nonatomic) IBOutlet UILabel *volumeLabel;
 @property (strong, nonatomic) NSTimer *moving_timer;
 @property (strong, nonatomic) NSTimer *stop_timer;
 @property (strong, nonatomic) CMMotionManager *motionManager;

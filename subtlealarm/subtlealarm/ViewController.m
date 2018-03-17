@@ -39,7 +39,9 @@ double const MOVEMENT_TIME = 3;
     [self config];
     [self setupAudio];
     [self.cirlce setStrokeEnd:0.0 animated:NO];
+    [self updateVolumeLabel];
     self.view.backgroundColor = [UIColor neutralColor];
+
 
 }
 
@@ -64,8 +66,6 @@ double const MOVEMENT_TIME = 3;
     alarm_status = false;
     trigger_alarm_when_phone_is_still = false;
     sound = false;
-
-    
 }
 
 -(void) setupAudio {
@@ -97,7 +97,15 @@ double const MOVEMENT_TIME = 3;
 
     if ([keyPath isEqual:@"outputVolume"]) {
         phoneVoume = [change[@"new"] doubleValue];
+        [self updateVolumeLabel];
+    }
+}
 
+-(void)updateVolumeLabel {
+    if (phoneVoume < 0.5) {
+        self.volumeLabel.text = @"Device Volume is too low.";
+    } else {
+        self.volumeLabel.text = @"";
     }
 }
 
@@ -136,7 +144,6 @@ double const MOVEMENT_TIME = 3;
     if (!alarm_status) {
 
         if (phoneVoume < 0.5) {
-            self.movementLabel.text = @"Phone Volume is too low.";
             return;
         }
 
@@ -178,7 +185,7 @@ double const MOVEMENT_TIME = 3;
     
     lastValue = val;
     if (phone_moving && phoneMovingSeconds > MOVEMENT_TIME) {
-        self.movementLabel.text = @"Phone is in motion";
+        self.movementLabel.text = @"Device is in motion";
         phoneNotMoving = 0;
         
         if (alarm_status) {
@@ -186,7 +193,7 @@ double const MOVEMENT_TIME = 3;
         }
 
     } else if (!phone_moving && phoneNotMoving > STILL_TIME) {
-        self.movementLabel.text = @"Phone is Still";
+        self.movementLabel.text = @"Device is Still";
         phoneMovingSeconds = 0;
         if (trigger_alarm_when_phone_is_still) {
             alarm_status = true;
