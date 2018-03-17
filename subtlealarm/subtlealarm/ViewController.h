@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "CircleView.h"
+#import "UIColor+UIColor_Category.h"
 
 
 @import LocalAuthentication;

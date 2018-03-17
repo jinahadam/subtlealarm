@@ -10,6 +10,7 @@ double const INCREMENT = 0.1;
 double const STILL_TIME = 5;
 double const MOVEMENT_TIME = 3;
 
+
 #import "ViewController.h"
 
 @interface ViewController () {
@@ -38,6 +39,7 @@ double const MOVEMENT_TIME = 3;
     [self config];
     [self setupAudio];
     [self.cirlce setStrokeEnd:0.0 animated:NO];
+    self.view.backgroundColor = [UIColor neutralColor];
 
 }
 
@@ -62,6 +64,8 @@ double const MOVEMENT_TIME = 3;
     alarm_status = false;
     trigger_alarm_when_phone_is_still = false;
     sound = false;
+
+    
 }
 
 -(void) setupAudio {
@@ -112,6 +116,7 @@ double const MOVEMENT_TIME = 3;
     alarm_status = false;
     trigger_alarm_when_phone_is_still = false;
     [self stopAlarmSound];
+    self.view.backgroundColor = [UIColor neutralColor];
 }
 
 -(void) playAlarmSound {
@@ -185,6 +190,7 @@ double const MOVEMENT_TIME = 3;
         phoneMovingSeconds = 0;
         if (trigger_alarm_when_phone_is_still) {
             alarm_status = true;
+            self.view.backgroundColor = [UIColor alarmColor];
             self.alarmStatus.text = @"Alarm ON";
             self.movementLabel.text = @"Lock the phone, Unlock to stop the alarm";
         }
@@ -207,7 +213,7 @@ double const MOVEMENT_TIME = 3;
 
 - (void)increasePhoneMovementTimer
 {
-    phoneMovingSeconds =phoneMovingSeconds + INCREMENT;
+    phoneMovingSeconds = phoneMovingSeconds + INCREMENT;
     
 }
 
@@ -232,11 +238,7 @@ double const MOVEMENT_TIME = 3;
 }
 
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
+
+
+
