@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yqt-1o-1w6">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yqt-1o-1w6">
                     <rect key="frame" x="120" y="132.66666666666666" width="240" height="214.99999999999997"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="215" id="Sah-er-uQO"/>
@@ -34,6 +33,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo.png" width="2048" height="2048"/>
+        <image name="iTunesArtwork.png" width="512" height="512"/>
     </resources>
 </document>

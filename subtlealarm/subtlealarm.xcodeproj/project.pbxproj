@@ -17,11 +17,13 @@
 		8008328319EF838B004F5CA0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008328219EF838B004F5CA0 /* CoreMotion.framework */; };
 		8008328519EF858F004F5CA0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008328419EF858F004F5CA0 /* LocalAuthentication.framework */; };
 		8008328719EF8776004F5CA0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8008328619EF8776004F5CA0 /* Localizable.strings */; };
+		8044B162205D65B60037FB5E /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8044B15F205D65B60037FB5E /* iTunesArtwork@3x.png */; };
+		8044B163205D65B60037FB5E /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8044B160205D65B60037FB5E /* iTunesArtwork@2x.png */; };
+		8044B164205D65B60037FB5E /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8044B161205D65B60037FB5E /* iTunesArtwork@1x.png */; };
 		8050025419F0BD8B00D9A897 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8050025319F0BD8B00D9A897 /* AVFoundation.framework */; };
 		8050025619F0BD9400D9A897 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8050025519F0BD9400D9A897 /* AudioToolbox.framework */; };
 		8050025819F0BEAC00D9A897 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8050025719F0BEAC00D9A897 /* alarm.wav */; };
 		80819206205CFC2400F084FD /* UIColor+UIColor_Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 80819205205CFC2300F084FD /* UIColor+UIColor_Category.m */; };
-		80819208205D306200F084FD /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 80819207205D306200F084FD /* logo.png */; };
 		80A5BFF31AA2E2B4003D5F50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A5BFF21AA2E2B4003D5F50 /* SystemConfiguration.framework */; };
 		80A5BFF51AA2E89D003D5F50 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A5BFF41AA2E89D003D5F50 /* StoreKit.framework */; };
 		80ADC0B219F7541E00666C25 /* ConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ADC0B119F7541E00666C25 /* ConfirmButton.m */; };
@@ -57,12 +59,14 @@
 		8008328219EF838B004F5CA0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		8008328419EF858F004F5CA0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		8008328619EF8776004F5CA0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8044B15F205D65B60037FB5E /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
+		8044B160205D65B60037FB5E /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		8044B161205D65B60037FB5E /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
 		8050025319F0BD8B00D9A897 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8050025519F0BD9400D9A897 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8050025719F0BEAC00D9A897 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		80819204205CFC2300F084FD /* UIColor+UIColor_Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Category.h"; sourceTree = "<group>"; };
 		80819205205CFC2300F084FD /* UIColor+UIColor_Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Category.m"; sourceTree = "<group>"; };
-		80819207205D306200F084FD /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		80A5BFF21AA2E2B4003D5F50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		80A5BFF41AA2E89D003D5F50 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		80ADC0B019F7541E00666C25 /* ConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmButton.h; sourceTree = "<group>"; };
@@ -147,7 +151,9 @@
 		8008322E19ED5A53004F5CA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				80819207205D306200F084FD /* logo.png */,
+				8044B161205D65B60037FB5E /* iTunesArtwork@1x.png */,
+				8044B160205D65B60037FB5E /* iTunesArtwork@2x.png */,
+				8044B15F205D65B60037FB5E /* iTunesArtwork@3x.png */,
 				8008323B19ED5A53004F5CA0 /* Images.xcassets */,
 				8008323D19ED5A53004F5CA0 /* LaunchScreen.xib */,
 				80819204205CFC2300F084FD /* UIColor+UIColor_Category.h */,
@@ -283,9 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8050025819F0BEAC00D9A897 /* alarm.wav in Resources */,
+				8044B162205D65B60037FB5E /* iTunesArtwork@3x.png in Resources */,
 				8008323A19ED5A53004F5CA0 /* Main.storyboard in Resources */,
+				8044B163205D65B60037FB5E /* iTunesArtwork@2x.png in Resources */,
+				8044B164205D65B60037FB5E /* iTunesArtwork@1x.png in Resources */,
 				8008328719EF8776004F5CA0 /* Localizable.strings in Resources */,
-				80819208205D306200F084FD /* logo.png in Resources */,
 				8008323F19ED5A53004F5CA0 /* LaunchScreen.xib in Resources */,
 				8008323C19ED5A53004F5CA0 /* Images.xcassets in Resources */,
 			);
@@ -491,14 +499,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = subtlealarm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jinahadam.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,14 +519,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = subtlealarm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jinahadam.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

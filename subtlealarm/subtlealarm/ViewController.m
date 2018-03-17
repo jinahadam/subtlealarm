@@ -8,7 +8,7 @@
 
 double const INCREMENT = 0.1;
 double const STILL_TIME = 5;
-double const MOVEMENT_TIME = 3;
+double const MOVEMENT_TIME = 1;
 
 
 #import "ViewController.h"
@@ -169,7 +169,7 @@ double const MOVEMENT_TIME = 3;
 -(void)outputRotationData:(CMRotationRate)rotation
 {
     double val = [[NSString stringWithFormat:@" %.2f",rotation.z] doubleValue];
-    if (lastValue != val) {
+    if (fabs(fabs(lastValue) - fabs(val)) > 0.01) {
         phone_moving = true;
         if (!moving_timer.isValid)
             moving_timer = [NSTimer scheduledTimerWithTimeInterval:INCREMENT target:self selector:@selector(increasePhoneMovementTimer) userInfo:nil repeats:YES];
@@ -209,7 +209,7 @@ double const MOVEMENT_TIME = 3;
     if (trigger_alarm_when_phone_is_still) {
         [self.cirlce setStrokeColor:[UIColor grayColor]];
     } else {
-        [self.cirlce setStrokeColor:[UIColor grayColorx`]];
+        [self.cirlce setStrokeColor:[UIColor grayColor]];
     }
     phoneNotMoving = phoneNotMoving + INCREMENT;
     float cir = (phoneNotMoving/STILL_TIME);
